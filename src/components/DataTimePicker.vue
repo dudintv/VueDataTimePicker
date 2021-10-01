@@ -39,9 +39,15 @@ export default {
             if (el.selectionStart === 0 && e.data === "2") {
               if (+result[1] > 3) result[1] = "3";
             }
-            if (el.selectionStart === 1 && result[0] === "2" && +e.data > 3) {
-              result[1] = "3";
-              prevCursorPos += 1;
+            if (el.selectionStart === 1) {
+              if (result[0] === "_") {
+                result[0] = "0";
+              }
+              result[1] = e.data;
+              if (result[0] === "2" && +e.data > 3) {
+                result[1] = "3";
+                prevCursorPos += 1;
+              }
             } else {
               result[el.selectionStart] = e.data;
             }
