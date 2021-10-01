@@ -36,6 +36,9 @@ export default {
         if (e.data) {
           if (e.data.match(pattern[el.selectionStart])) {
             let prevCursorPos = el.selectionStart + 1;
+            if (el.selectionStart === 0 && e.data === "2") {
+              if (+result[1] > 3) result[1] = "3";
+            }
             if (el.selectionStart === 1 && result[0] === "2" && +e.data > 3) {
               result[1] = "3";
               prevCursorPos += 1;
